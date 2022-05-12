@@ -3,34 +3,51 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
+  state = {
+    name: '',
+    descricao: '',
+    atributo1: '',
+    atributo2: '',
+    atributo3: '',
+    imagem: '',
+    raridade: 'normal',
+    trunfo: false,
+  }
+
+  onInputChange = (event) => {
+    const { target: { value, name } } = event;
+    this.setState({ [name]: value });
+  }
+
   render() {
+    const { name, descricao, atributo1, atributo2,
+      atributo3, imagem, raridade, trunfo, hasTrunfo, isSaveButtonDisabled } = this.state;
     return (
       <div>
         <h1>Adicionar nova carta</h1>
         <Form
-          cardName={ this.cardName }
-          cardDescription={ this.cardDescription }
-          cardAttr1={ this.cardAttr1 }
-          cardAttr2={ this.cardAttr2 }
-          cardAttr3={ this.cardAttr3 }
-          cardImage={ this.cardImage }
-          cardRare={ this.cardRare }
-          cardTrunfo={ this.cardTrunfo }
-          hasTrunfo={ this.hasTrunfo }
-          isSaveButtonDisabled={ this.isSaveButtonDisabled }
+          cardName={ name }
+          cardDescription={ descricao }
+          cardAttr1={ atributo1 }
+          cardAttr2={ atributo2 }
+          cardAttr3={ atributo3 }
+          cardImage={ imagem }
+          cardRare={ raridade }
+          cardTrunfo={ trunfo }
+          hasTrunfo={ hasTrunfo }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
-          cardName={ this.cardName }
-          cardDescription={ this.cardDescription }
-          cardAttr1={ this.cardAttr1 }
-          cardAttr2={ this.cardAttr2 }
-          cardAttr3={ this.cardAttr3 }
-          cardImage={ this.cardImage }
-          cardRare={ this.cardRare }
-          cardTrunfo={ this.cardTrunfo }
-          hasTrunfo={ this.hasTrunfo }
+          cardName={ name }
+          cardDescription={ descricao }
+          cardAttr1={ atributo1 }
+          cardAttr2={ atributo2 }
+          cardAttr3={ atributo3 }
+          cardImage={ imagem }
+          cardRare={ raridade }
+          cardTrunfo={ trunfo }
         />
       </div>
     );

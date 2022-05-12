@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 class Form extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo,
+      cardAttr3, cardImage, cardRare, cardTrunfo, // hasTrunfo,
       isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
 
     return (
       <fieldset className="container-inputs">
         <div className="name-descricao">
-          <label htmlFor="name">
+          <label htmlFor="cardName">
             Nome:
             <input
-              id="name"
+              id="cardName"
               type="text"
               data-testid="name-input"
               name="name"
@@ -129,7 +129,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
