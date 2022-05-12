@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container-inputs {
+  display: flex;
+}
+
+.name-descricao {
+  display: flex;
+}
+
+.atributos {
+  display: flex;
+}
+
+.imagem-raridade-trunfo {
+  display: flex;
+}
+
+.botao-enviar {
+  display: flex;
+}
+
+.container-card {
+  display: flex;
+}
