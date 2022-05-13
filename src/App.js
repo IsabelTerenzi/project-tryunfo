@@ -14,7 +14,7 @@ class App extends React.Component {
     trunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
-    formPreenchido: [],
+    formPreenchido: [], // array que irá receber as informações da carta a ser salva, iniciando vazio
   }
 
   verificaBotaoSalvar = () => {
@@ -58,11 +58,11 @@ class App extends React.Component {
       imagem, raridade, trunfo } = this.state;
     const cartaCriada = {
       name, descricao, atributo1, atributo2, atributo3, imagem, raridade, trunfo,
-    };
+    }; // essa constante cria o objeto da carta que será salva
 
     this.setState(({ formPreenchido }) => ({
       formPreenchido: [...formPreenchido, cartaCriada],
-    }),
+    }), // pega o array do formulário preenchido, inicialmente vazio, e coloca as informações preenchidas, a partir dos elementos do objeto cartaCriada
     () => {
       this.setState({
         name: '',
@@ -73,8 +73,11 @@ class App extends React.Component {
         atributo3: '0',
         raridade: 'normal',
       });
-    });
-  }
+    }); // após a carta ser salva, volta os elementos aos seus estados iniciais, ou seja, zerados
+    if (trunfo) {
+      this.setState({ hasTrunfo: true });
+    }
+  } // verifica se o trunfo é true e se for, muda a hasTrunfo para true, que está sendo chamada no form
 
   render() {
     const { name, descricao, atributo1, atributo2,
