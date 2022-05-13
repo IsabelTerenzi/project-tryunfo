@@ -13,25 +13,29 @@ code {
 }
 
 .container-inputs {
-  display: flex;
+  display: inline-block;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
 .name-descricao {
-  display: flex;
+  padding: 3%;
 }
 
 .atributos {
-  display: flex;
+  padding: 3%;
 }
 
 .imagem-raridade-trunfo {
-  display: flex;
+  padding: 3%;
 }
 
 .botao-enviar {
-  display: flex;
+  padding: 3%;
 }
 
 .container-card {
-  display: flex;
+  display: inline-block;
+  align-items: left;
+  justify-content: space-around;
 }

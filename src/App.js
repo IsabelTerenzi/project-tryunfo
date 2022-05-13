@@ -6,17 +6,50 @@ class App extends React.Component {
   state = {
     name: '',
     descricao: '',
-    atributo1: '',
-    atributo2: '',
-    atributo3: '',
+    atributo1: '0',
+    atributo2: '0',
+    atributo3: '0',
     imagem: '',
     raridade: 'normal',
     trunfo: false,
+    hasTrunfo: false,
+    isSaveButtonDisabled: true,
   }
 
-  onInputChange = (event) => {
-    const { target: { value, name } } = event;
-    this.setState({ [name]: value });
+  verificaBotaoSalvar = () => {
+    const somaAtrib = 210;
+    const numeroMax = 90;
+    const numeroMin = 0;
+    const { name, descricao, imagem, raridade, atributo1,
+      atributo2, atributo3 } = this.state;
+    const at1 = parseInt(atributo1, 10);
+    const at2 = parseInt(atributo2, 10);
+    const at3 = parseInt(atributo3, 10);
+
+    if (name === '' || descricao === '' || imagem === '' || raridade === '') {
+      this.setState({ isSaveButtonDisabled: true });
+    } else {
+      this.setState({ isSaveButtonDisabled: false });
+    }
+
+    if (at1 + at2 + at3 > somaAtrib) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+
+    if (atributo1 > numeroMax || atributo2 > numeroMax || atributo3 > numeroMax) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+
+    if (atributo1 < numeroMin || atributo2 < numeroMin || atributo3 < numeroMin) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+  }
+
+  onInputChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState(() => ({ [name]: value }),
+      this.verificaBotaoSalvar);
   }
 
   render() {
