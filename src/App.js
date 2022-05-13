@@ -14,6 +14,7 @@ class App extends React.Component {
     trunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
+    formPreenchido: [],
   }
 
   verificaBotaoSalvar = () => {
@@ -50,6 +51,29 @@ class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState(() => ({ [name]: value }),
       this.verificaBotaoSalvar);
+  }
+
+  onSaveButtonClick = () => {
+    const { name, descricao, atributo1, atributo2, atributo3,
+      imagem, raridade, trunfo } = this.state;
+    const cartaCriada = {
+      name, descricao, atributo1, atributo2, atributo3, imagem, raridade, trunfo,
+    };
+
+    this.setState(({ formPreenchido }) => ({
+      formPreenchido: [...formPreenchido, cartaCriada],
+    }),
+    () => {
+      this.setState({
+        name: '',
+        descricao: '',
+        imagem: '',
+        atributo1: '0',
+        atributo2: '0',
+        atributo3: '0',
+        raridade: 'normal',
+      });
+    });
   }
 
   render() {
