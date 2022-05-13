@@ -74,6 +74,7 @@ class App extends React.Component {
         raridade: 'normal',
       });
     }); // após a carta ser salva, volta os elementos aos seus estados iniciais, ou seja, zerados
+
     if (trunfo) {
       this.setState({ hasTrunfo: true });
     }
@@ -81,34 +82,52 @@ class App extends React.Component {
 
   render() {
     const { name, descricao, atributo1, atributo2,
-      atributo3, imagem, raridade, trunfo, hasTrunfo, isSaveButtonDisabled } = this.state;
+      atributo3, imagem, raridade, trunfo, hasTrunfo,
+      isSaveButtonDisabled, formPreenchido } = this.state;
     return (
       <div>
         <h1>Adicionar nova carta</h1>
-        <Form
-          cardName={ name }
-          cardDescription={ descricao }
-          cardAttr1={ atributo1 }
-          cardAttr2={ atributo2 }
-          cardAttr3={ atributo3 }
-          cardImage={ imagem }
-          cardRare={ raridade }
-          cardTrunfo={ trunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card
-          cardName={ name }
-          cardDescription={ descricao }
-          cardAttr1={ atributo1 }
-          cardAttr2={ atributo2 }
-          cardAttr3={ atributo3 }
-          cardImage={ imagem }
-          cardRare={ raridade }
-          cardTrunfo={ trunfo }
-        />
+        <section>
+          <Form
+            cardName={ name }
+            cardDescription={ descricao }
+            cardAttr1={ atributo1 }
+            cardAttr2={ atributo2 }
+            cardAttr3={ atributo3 }
+            cardImage={ imagem }
+            cardRare={ raridade }
+            cardTrunfo={ trunfo }
+            hasTrunfo={ hasTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+            cardName={ name }
+            cardDescription={ descricao }
+            cardAttr1={ atributo1 }
+            cardAttr2={ atributo2 }
+            cardAttr3={ atributo3 }
+            cardImage={ imagem }
+            cardRare={ raridade }
+            cardTrunfo={ trunfo }
+          />
+        </section>
+        <section>
+          { formPreenchido.map((carta, index) => (
+            <div key={ index }>
+              <Card
+                cardName={ carta.name }
+                cardDescription={ carta.descricao }
+                cardAttr1={ carta.atributo1 }
+                cardAttr2={ carta.atributo2 }
+                cardAttr3={ carta.atributo3 }
+                cardImage={ carta.imagem }
+                cardRare={ carta.raridade }
+                cardTrunfo={ carta.trunfo }
+              />
+            </div>))}
+        </section>
       </div>
     );
   }
