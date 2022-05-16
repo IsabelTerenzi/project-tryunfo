@@ -76,9 +76,20 @@ class App extends React.Component {
     }); // após a carta ser salva, volta os elementos aos seus estados iniciais, ou seja, zerados
 
     if (trunfo) {
-      this.setState({ hasTrunfo: true });
+      this.setState({
+        trunfo: false,
+        hasTrunfo: true });
     }
   } // verifica se o trunfo é true e se for, muda a hasTrunfo para true, que está sendo chamada no form
+
+  botaoDeleta = (name, trunfo) => {
+    const { formPreenchido } = this.state;
+    const deletaCarta = formPreenchido.filter((carta) => carta.name !== name);
+    this.setState({
+      formPreenchido: deletaCarta,
+      hasTrunfo: !trunfo,
+    });
+  }
 
   render() {
     const { name, descricao, atributo1, atributo2,
@@ -86,7 +97,7 @@ class App extends React.Component {
       isSaveButtonDisabled, formPreenchido } = this.state;
     return (
       <div>
-        <h1>Adicionar nova carta</h1>
+        <h1 className="titulo">Trunfo Literário</h1>
         <section>
           <Form
             cardName={ name }
@@ -115,7 +126,7 @@ class App extends React.Component {
         </section>
         <section>
           { formPreenchido.map((carta, index) => (
-            <div key={ index }>
+            <div key={ index } className="card-criado">
               <Card
                 cardName={ carta.name }
                 cardDescription={ carta.descricao }
@@ -126,6 +137,14 @@ class App extends React.Component {
                 cardRare={ carta.raridade }
                 cardTrunfo={ carta.trunfo }
               />
+              <button
+                type="button"
+                className="botao-delete"
+                data-testid="delete-button"
+                onClick={ () => this.botaoDeleta(carta.name, carta.trunfo) }
+              >
+                Excluir
+              </button>
             </div>))}
         </section>
       </div>

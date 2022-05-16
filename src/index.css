@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,35 +9,149 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.titulo {
+  margin-left: 3%;
+  text-decoration: underline;
+  color:rgb(8, 59, 32);
 }
 
 .container-inputs {
-  display: inline-block;
+  border: 3px solid rgb(8, 59, 32);
+  display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  text-align: center;
+  margin-left: 2%;
+  max-width: 100%;
+  border-radius: 10px;
+  background: #FAFAFA;
+  margin-bottom: 2%;
+}
+
+.container-inputs input {
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid rgb(8, 59, 32);
+}
+
+.container-inputs label {
+  margin: 10px 20px;
+  text-align: left;
+  padding: 1%;
 }
 
 .name-descricao {
-  padding: 3%;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  flex-direction: column;
 }
 
 .atributos {
-  padding: 3%;
+  text-decoration-style: dashed;
+  display: flex;
+  padding: 5%;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .imagem-raridade-trunfo {
-  padding: 3%;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.botao-enviar {
-  padding: 3%;
+.button-7 {
+  background-color: rgb(8, 59, 32);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 10px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgb(8, 59, 32);
+}
+
+.button-7:active {
+  background-color: rgb(8, 59, 32);
+  box-shadow: none;
 }
 
 .container-card {
+  max-width: 450px;
   display: inline-block;
-  align-items: left;
-  justify-content: space-around;
+  color: rgb(16, 15, 15);
+  background-color: #FAFAFA;
+  border-radius: 5%;
+  filter: drop-shadow(8px 8px 8px #e9e9ed);
+  margin-left: 5%;
+  text-align: center;
+  border: 8px solid #080808;
+  padding: 15px;
+}
+
+.container-card h1{
+  color:rgb(8, 59, 32);
+}
+
+.container-card img {
+  max-width: 250px;
+  border: 3px solid rgb(8, 59, 32);
+  border-radius: 5%;
+}
+
+.container-card p{
+  text-align: justify;
+}
+
+.trun {
+  color: rgb(22, 179, 95);
+  border: 3px solid rgb(8, 59, 32);
+  padding: 5px;
+}
+
+.botao-delete {
+  background-color: #0b0c0c;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  margin-left: 1%;
+}
+
+.card-criado {
+  margin-top: 1%;
+  margin-bottom: 1%;
 }

@@ -11,7 +11,8 @@ class Form extends React.Component {
       <fieldset className="container-inputs">
         <div className="name-descricao">
           <label htmlFor="cardName">
-            Nome:
+            Nome Livro
+            <br />
             <input
               id="cardName"
               type="text"
@@ -22,10 +23,13 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="descricao">
-            Descrição:
-            <input
+            Descrição
+            <br />
+            <textarea
               id="descricao"
               type="textarea"
+              cols="25"
+              rows="5"
               data-testid="description-input"
               name="descricao"
               value={ cardDescription }
@@ -35,7 +39,7 @@ class Form extends React.Component {
         </div>
         <div className="atributos">
           <label htmlFor="atributo1">
-            Atributo 1:
+            Prêmios Literários
             <input
               id="atributo1"
               type="number"
@@ -46,7 +50,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="atributo2">
-            Atributo 2:
+            Edições Publicadas
             <input
               id="atributo2"
               type="number"
@@ -57,7 +61,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="atributo3">
-            Atributo 3:
+            Impacto Social
             <input
               id="atributo3"
               type="number"
@@ -70,7 +74,8 @@ class Form extends React.Component {
         </div>
         <div className="imagem-raridade-trunfo">
           <label htmlFor="imagem">
-            Imagem:
+            Imagem
+            <br />
             <input
               id="imagem"
               type="text"
@@ -81,7 +86,8 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="raridade">
-            Raridade:
+            Raridade
+            <br />
             <select
               id="raridade"
               data-testid="rare-input"
@@ -94,21 +100,23 @@ class Form extends React.Component {
               <option>muito raro</option>
             </select>
           </label>
-          { hasTrunfo ? ('Você já tem um Super Trunfo em seu baralho') : ( // verifica se hasTrunfo, como chamado no App, é true. Se for, retorna a mensagem, se não, cria o super trunfo na carta
+          { hasTrunfo ? ('Você já tem um Super Trunfo em seu baralho') : (
             <label htmlFor="trunfo">
+              Super Trunfo
               <input
                 type="checkbox"
+                id="trunfo"
                 data-testid="trunfo-input"
                 name="trunfo"
                 checked={ cardTrunfo }
                 onChange={ onInputChange }
               />
-              Super Trunfo
-            </label>
+            </label> // verifica se hasTrunfo, como chamado no App, é true. Se for, retorna a mensagem, se não, cria o super trunfo na carta
           )}
         </div>
-        <div className="botao-enviar">
+        <div>
           <button
+            className="button-7"
             type="submit"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled }
